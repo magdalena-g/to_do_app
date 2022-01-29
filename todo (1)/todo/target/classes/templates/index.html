@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<div class="container mt-4">
+    <h1>TO DO LIST</h1>
+    <br>
+    <a th:href="@{/new}" class="btn btn-primary">New</a>
+    <a th:href="@{/done}" class="btn btn-success">Successes</a>
+    <a th:href="@{/login}" class="btn btn-danger">Logout</a>
+
+ <br> <br>
+    <table class="table">
+        <thead>
+        <tr>
+
+            <th>TASK</th>
+            <th>PRIORITY</th>
+            <th>ACTION</th>
+        </tr>
+
+        </thead>
+        <tbody>
+        <tr th:each="task:${tasks}" th:if="${task.done != null} ? ${task.done == 0}">
+            <td th:text="${task.task_name}"></td>
+            <td th:text="${task.priority}"></td>
+
+
+            <td>
+                <a th:href="@{/edit/}+${task.id}" class="btn btn-warning">Edit</a>
+                <a th:href="@{/delete/}+${task.id}" class="btn btn-danger">Delete</a>
+                <a th:href="@{/done/}+${task.done+1}" class="btn btn-success"> Done</a>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<div class="container mt-4">
+    <h2>Your successes list</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>TASK</th>
+            <th>PRIORITY</th>
+        </tr>
+
+        </thead>
+        <tbody>
+        <tr th:each="task:${tasks}" th:if="${task.done != null} ? ${task.done == 1}">
+            <td th:text="${task.task_name}"></td>
+            <td th:text="${task.priority}"></td>
+        </tr>
+        <td>
+            <a th:href="@{/list/}" class="btn btn-warning">Back</a>
+        </td>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

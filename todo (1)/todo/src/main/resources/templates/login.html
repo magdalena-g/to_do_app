@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <style>.gradient-custom {
+  /* fallback for old browsers */
+  background: #6a11cb;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+}</style>
+</head>
+<body>
+
+<div class="container mt-4">
+  <h1>TO DO LIST</h1>
+  <table>
+    <tr>
+      <td align="center" valign="middle">
+        <table class="table-bordered" width="350" border="0" cellpadding="3"cellspacing="3" bgcolor="#ffffff">
+
+          <form action="#" th:action="@{/login}" th:object="${user}" method="post">
+
+
+            <tr>
+              <td height="25" colspan="2" align="left" valign="middle" bgcolor="#ffffff" class="style2">
+                <div align="center">
+                  <strong>User Login</strong>
+                </div>
+
+              </td>
+            </tr>
+
+            <tr>
+              <td>Username</td>
+              <td>
+
+                <input type="text" th:field="*{username}" class="form-control" />
+              </td>
+            </tr>
+            <tr>
+              <td>Password</td>
+              <td><input type="password" th:field="*{password}" class="form-control" /></td>
+            </tr>
+            <tr>
+              <td colspan="2"><button type="submit" class="btn btn-info" align="right">Login</button> </td>
+            </tr>
+
+          </form>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+</body>
+</html>
